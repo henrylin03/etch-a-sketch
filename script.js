@@ -20,30 +20,32 @@ function createGrid() {
     }
 };
 
-function generateGrid() {
-    while (true) {
-        const squaresOnEachSide = prompt(`Please enter the number of squares per side of your grid.
+function generateNewGrid() {
+    function getSquaresPerSide() {
+        while (true) {
+            let squaresPerSide = prompt(`Please enter the number of squares per side of your grid.
     
 (number between 3 and 100):`)
-        const userClickedCancel = squaresOnEachSide === null;
-        if (userClickedCancel ||
-            (squaresOnEachSide >= 3 && squaresOnEachSide <= 100)) break;
-        if (squaresOnEachSide === "") continue;
-        alert(`Please enter a number between 3 and 100
+            const userClickedCancel = squaresPerSide === null;
+            if (userClickedCancel) break;
+            if (squaresPerSide === "") continue;
+            if (squaresPerSide >= 3 && squaresPerSide <= 100) return squaresPerSide
+            alert(`Please enter a number between 3 and 100
         
 Click OK to continue.`);
-    };
-    // clear grid?
+        };
+    }
 
-    // generate grid
+    getSquaresPerSide();
 }
 
 // todo: initialise page with at least a grid
 createGrid();
 
 const newGridButton = document.querySelector("button");
-newGridButton.addEventListener("click", generateGrid)
+newGridButton.addEventListener("click", generateNewGrid)
 
+const squares = document.querySelectorAll(".square");
 squares.forEach(square =>
     square.addEventListener(
         "mouseover", () => square.classList.add("coloured")
