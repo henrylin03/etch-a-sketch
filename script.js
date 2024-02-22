@@ -22,7 +22,7 @@ function createGrid() {
 
 function colourSquare() {
     const squareInGrid = document.querySelectorAll(".square");
-    console.log(squareInGrid);
+    squareInGrid.forEach(square => square.classList.add("coloured"))
 }
 
 createGrid();
