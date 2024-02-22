@@ -1,4 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    padding: 50px;
+}
+
 .container {
+    margin: 15px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
