@@ -20,10 +20,13 @@ function createGrid() {
     }
 };
 
-function colourSquare() {
-    const squares = document.querySelectorAll(".square");
-    squares.forEach(s => s.classList.add("coloured"))
-}
+
 
 createGrid();
-colourSquare();
+
+const squares = document.querySelectorAll(".square");
+squares.forEach(square =>
+    square.addEventListener(
+        "mouseover", () => square.classList.add("coloured")
+    )
+);
