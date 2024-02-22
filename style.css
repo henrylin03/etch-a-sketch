@@ -25,3 +25,7 @@ h1 {
     width: 40px;
     border: 1px solid grey;
 }
+
+.coloured {
+    background-color: #00b4d8;
+}
