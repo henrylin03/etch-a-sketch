@@ -20,13 +20,25 @@ function createGrid() {
     }
 };
 
-
+function generateGrid() {
+    alert("New grid button clicked");
+}
 
 createGrid();
 
 const squares = document.querySelectorAll(".square");
+const newGridButton = document.querySelector("button");
+
+newGridButton.addEventListener("click", generateGrid)
 squares.forEach(square =>
     square.addEventListener(
         "mouseover", () => square.classList.add("coloured")
     )
 );
+
+
+// BUILD FUNCTION THAT CREATES A POPUP FOR USER ASKING FOR NUMBER OF SQUARES PER SIDE FOR NEW GRID
+// IF USER INPUTS NUMBER MORE THAN 100 SQUARES PER SIDE, SAY MAX 100
+// FUNCTION SHOULD THEN GENERATE THE GRID (MAKE THE GRID SQUARES A BIT SMALLER DEPENDING ON HOW BIG IT IS? - I.E. IF THE GRID IS 100X100, THEN HEIGHT/WIDTH IN CSS SHOUDL BE BIT SMALLER - MAYBE FLEXBOX CAN DO THIS?)
+// REQUIREMENT IS THAT THE SAME AMOUNT OF PIXELS ARE USED ON THE SCREEN, DESPITE HOW MANY USER PUTS IN
+// EVENT LISTENER ON BUTTON TO OPEN FUNCTION
