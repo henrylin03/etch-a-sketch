@@ -5,6 +5,7 @@ function createGrid() {
     let squareCount = 1;
     while (squareCount <= 16) {
         const squareDiv = document.createElement("div");
+        squareDiv.classList.add("square");
         gridRow.appendChild(squareDiv);
         squareCount++;
     };
@@ -19,6 +20,10 @@ function createGrid() {
     }
 };
 
-
+function colourSquare() {
+    const squareInGrid = document.querySelectorAll(".square");
+    console.log(squareInGrid);
+}
 
 createGrid();
+colourSquare();
