@@ -1,7 +1,7 @@
-const gridContainer = document.querySelector(".container");
-const gridRow = gridContainer.querySelector(".row");
-
 function createGrid() {
+    const gridContainer = document.querySelector(".container");
+    const gridRow = gridContainer.querySelector(".row");
+
     let squareCount = 1;
     while (squareCount <= 16) {
         const squareDiv = document.createElement("div");
