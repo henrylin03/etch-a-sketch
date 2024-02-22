@@ -9,7 +9,8 @@ function createGrid() {
         squareCount++;
     };
 
-    // initially, the _2nd_ row will be created, as there is already one present created in the above loop
+    // initially, the _2nd_ row will be created
+    // as there is already one present created in the above loop
     let rowCount = 2;
     while (rowCount <= 16) {
         const rowClone = gridRow.cloneNode(true);
