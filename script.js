@@ -1,5 +1,6 @@
 function createGrid(squaresPerSide = 16) {
     const gridContainer = document.querySelector(".container");
+    gridContainer.replaceChildren();
 
     const row = document.createElement("div");
     row.classList.add("row");
@@ -20,6 +21,8 @@ function createGrid(squaresPerSide = 16) {
         gridContainer.appendChild(rowClone);
         rowCount++;
     }
+
+    colourGridsOnHover();
 };
 
 function generateNewGrid() {
@@ -38,33 +41,23 @@ Click OK to continue.`);
         };
     }
 
-    function removeExistingGrid() {
-        return;
-    }
-
     const squaresPerSide = getSquaresPerSide();
-
-
-    // TODO: REMOVE EXISTING GRID
-    // ? might then need to go back to createGrid function and fix - might be a bit hacky to just keep a single <div class="row"> to generate right number...
-
-
     createGrid(squaresPerSide);
-
 }
 
-// todo: initialise page with at least a grid
-createGrid();
+function colourGridsOnHover() {
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(square =>
+        square.addEventListener(
+            "mouseover", () => square.classList.add("coloured")
+        )
+    );
+}
 
+
+createGrid();
 const newGridButton = document.querySelector("button");
 newGridButton.addEventListener("click", generateNewGrid)
-
-const squares = document.querySelectorAll(".square");
-squares.forEach(square =>
-    square.addEventListener(
-        "mouseover", () => square.classList.add("coloured")
-    )
-);
 
 
 // FUNCTION SHOULD THEN GENERATE THE GRID (MAKE THE GRID SQUARES A BIT SMALLER DEPENDING ON HOW BIG IT IS? - I.E. IF THE GRID IS 100X100, THEN HEIGHT/WIDTH IN CSS SHOUDL BE BIT SMALLER - MAYBE FLEXBOX CAN DO THIS?)
