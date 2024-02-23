@@ -54,6 +54,14 @@ function colourGridsOnHover() {
     );
 }
 
+function generateRandomColour() {
+    const numbersAndLetters = "0123456789ABCDEF";
+    let colour = "#";
+    for (let i = 0; i < 6; i++) {
+        colour += numbersAndLetters[Math.floor(Math.random() * 16)];
+    }
+    return colour;
+}
 
 createGrid();
 const newGridButton = document.querySelector("button");
