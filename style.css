@@ -42,5 +42,6 @@ button {
 }
 
 .coloured {
-    background-color: #ffb703;
+    --square-color: #ffb703;
+    background-color: var(--square-color);
 }
