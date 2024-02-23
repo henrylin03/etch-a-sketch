@@ -1,20 +1,22 @@
 function createGrid(squaresPerSide = 16) {
     const gridContainer = document.querySelector(".container");
-    const gridRow = gridContainer.querySelector(".row");
+
+    const row = document.createElement("div");
+    row.classList.add("row");
+    gridContainer.appendChild(row);
 
     let squareCount = 1;
     while (squareCount <= squaresPerSide) {
         const squareDiv = document.createElement("div");
         squareDiv.classList.add("square");
-        gridRow.appendChild(squareDiv);
+        row.appendChild(squareDiv);
         squareCount++;
     };
 
-    // initially, the _2nd_ row will be created
-    // as there is already one present created in the above loop
-    let rowCount = 2;
-    while (rowCount <= squaresPerSide) {
-        const rowClone = gridRow.cloneNode(true);
+    let rowCount = 1;
+    // there is an existing row
+    while (rowCount <= squaresPerSide - 1) {
+        const rowClone = row.cloneNode(true);
         gridContainer.appendChild(rowClone);
         rowCount++;
     }
@@ -36,7 +38,18 @@ Click OK to continue.`);
         };
     }
 
+    function removeExistingGrid() {
+        return;
+    }
+
     const squaresPerSide = getSquaresPerSide();
+
+
+    // TODO: REMOVE EXISTING GRID
+    // ? might then need to go back to createGrid function and fix - might be a bit hacky to just keep a single <div class="row"> to generate right number...
+
+
+    createGrid(squaresPerSide);
 
 }
 
