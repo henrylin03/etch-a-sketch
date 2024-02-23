@@ -40,8 +40,3 @@ button {
     border: 1px solid grey;
     flex: 1;
 }
-
-.coloured {
-    --square-color: #ffb703;
-    background-color: var(--square-color);
-}

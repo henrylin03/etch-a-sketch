@@ -49,18 +49,21 @@ function colourGridsOnHover() {
     const squares = document.querySelectorAll(".square");
     squares.forEach(square =>
         square.addEventListener(
-            "mouseover", () => square.classList.add("coloured")
+            "mouseover", () => {
+                const randomColour = getRandomColour();
+                square.style.backgroundColor = randomColour;
+            }
         )
     );
-}
 
-function generateRandomColour() {
-    const numbersAndLetters = "0123456789ABCDEF";
-    let colour = "#";
-    for (let i = 0; i < 6; i++) {
-        colour += numbersAndLetters[Math.floor(Math.random() * 16)];
+    function getRandomColour() {
+        const numbersAndLetters = "0123456789ABCDEF";
+        let colour = "#";
+        for (let i = 0; i < 6; i++) {
+            colour += numbersAndLetters[Math.floor(Math.random() * 16)];
+        }
+        return colour;
     }
-    return colour;
 }
 
 createGrid();
