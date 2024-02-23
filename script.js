@@ -27,16 +27,18 @@ function createGrid(squaresPerSide = 16) {
 function generateNewGrid() {
     function getSquaresPerSide() {
         while (true) {
-            let squaresPerSide = prompt(`Please enter the number of squares per side of your grid.
+            let squaresPerSide = prompt(`Please enter the number of squares per side of your grid
     
-(number between 3 and 100):`)
+(integer between 3 and 100 inclusive):`)
             const userClickedCancel = squaresPerSide === null;
             if (userClickedCancel) break;
             if (squaresPerSide === "") continue;
-            if (squaresPerSide >= 3 && squaresPerSide <= 100) return squaresPerSide
-            alert(`Please enter a number between 3 and 100
+            if (Number.isInteger(+squaresPerSide)
+                && squaresPerSide >= 3
+                && squaresPerSide <= 100) return squaresPerSide
+            alert(`Please enter an integer between 3 and 100 inclusive
         
-Click OK to continue.`);
+Click OK to continue`);
         };
     }
 
