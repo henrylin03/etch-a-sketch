@@ -86,5 +86,3 @@ clearSquaresOnCheckboxChange();
 
 const newGridButton = document.querySelector("button");
 newGridButton.addEventListener("click", generateNewGrid);
-
-//TODO: HANDLE USER INPUT THAT ARE DECIMALS - GIVE THEM AN ERROR
