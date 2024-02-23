@@ -23,21 +23,22 @@ button {
 }
 
 .container {
-    height: 80vh;
-    margin: 0 auto;
+    height: 75vh;
+    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .row {
+    width: 75vh;
     display: flex;
+    flex: 1;
 }
 
 .square {
-    /* height: 20px;
-    width: 20px; */
     border: 1px solid grey;
+    flex: 1;
 }
 
 .coloured {
