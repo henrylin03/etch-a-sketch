@@ -1,5 +1,6 @@
 function createGrid(squaresPerSide = 16) {
     const gridContainer = document.querySelector(".container");
+    // deletes existing grid container and its grids
     gridContainer.replaceChildren();
 
     const row = document.createElement("div");
@@ -47,8 +48,6 @@ Click OK to continue.`);
 
 function colourGridsOnHover() {
     const squares = document.querySelectorAll(".square");
-    const randomiseColoursCheckbox = document.querySelector("#randomise-colours");
-
     squares.forEach(square =>
         square.addEventListener(
             "mouseover", () => {
@@ -72,3 +71,7 @@ function colourGridsOnHover() {
 createGrid();
 const newGridButton = document.querySelector("button");
 newGridButton.addEventListener("click", generateNewGrid)
+
+const squares = document.querySelectorAll(".square");
+const randomiseColoursCheckbox = document.querySelector("#randomise-colours");
+randomiseColoursCheckbox.addEventListener("change", () => squares.forEach(s => s.style.backgroundColor = ""));
