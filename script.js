@@ -22,8 +22,6 @@ function createGrid(squaresPerSide = 16) {
         gridContainer.appendChild(rowClone);
         rowCount++;
     }
-
-    colourGridsOnHover();
 };
 
 function generateNewGrid() {
@@ -44,6 +42,8 @@ Click OK to continue.`);
 
     const squaresPerSide = getSquaresPerSide();
     createGrid(squaresPerSide);
+    colourGridsOnHover();
+    clearSquaresOnCheckboxChange();
 }
 
 function colourGridsOnHover() {
@@ -70,10 +70,19 @@ function colourGridsOnHover() {
     }
 }
 
-createGrid();
-const newGridButton = document.querySelector("button");
-newGridButton.addEventListener("click", generateNewGrid)
+function clearSquaresOnCheckboxChange() {
+    const squares = document.querySelectorAll(".square");
+    randomiseColoursCheckbox.addEventListener(
+        "change",
+        () => { squares.forEach(square => square.style.backgroundColor = "") });
+}
 
-const squares = document.querySelectorAll(".square");
 const randomiseColoursCheckbox = document.querySelector("#randomise-colours");
-randomiseColoursCheckbox.addEventListener("change", () => squares.forEach(s => s.style.backgroundColor = ""));
+createGrid();
+colourGridsOnHover();
+clearSquaresOnCheckboxChange();
+
+const newGridButton = document.querySelector("button");
+newGridButton.addEventListener("click", generateNewGrid);
+
+//TODO: HANDLE USER INPUT THAT ARE DECIMALS - GIVE THEM AN ERROR
