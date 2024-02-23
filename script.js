@@ -62,7 +62,9 @@ function colourGridsOnHover() {
         const numbersAndLetters = "0123456789ABCDEF";
         let colour = "#";
         for (let i = 0; i < 6; i++) {
-            colour += numbersAndLetters[Math.floor(Math.random() * 16)];
+            colour += numbersAndLetters[
+                Math.floor(Math.random() * numbersAndLetters.length)
+            ];
         }
         return colour;
     }
