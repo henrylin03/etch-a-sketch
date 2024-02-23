@@ -47,11 +47,14 @@ Click OK to continue.`);
 
 function colourGridsOnHover() {
     const squares = document.querySelectorAll(".square");
+    const randomiseColoursCheckbox = document.querySelector("#randomise-colours");
+
     squares.forEach(square =>
         square.addEventListener(
             "mouseover", () => {
-                const randomColour = getRandomColour();
-                square.style.backgroundColor = randomColour;
+                squareColour = randomiseColoursCheckbox.checked ?
+                    getRandomColour() : "#fb8500"
+                square.style.backgroundColor = squareColour;
             }
         )
     );
