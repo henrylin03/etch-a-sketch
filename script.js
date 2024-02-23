@@ -17,7 +17,7 @@ function createGrid(squaresPerSide = 16) {
 
     let rowCount = 1;
     // there is an existing row
-    while (rowCount <= squaresPerSide - 1) {
+    while (rowCount + 1 <= squaresPerSide) {
         const rowClone = row.cloneNode(true);
         gridContainer.appendChild(rowClone);
         rowCount++;
